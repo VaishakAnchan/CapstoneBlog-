@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: rgb(15 23 42);
+  color: white;
+  width: 100vw;
+  overflow-x: hidden;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.animatedButton {
+  animation-duration: 10000ms;
+}
+
+.ql-container {
+  border: none !important;
+}
+.ql-toolbar {
+  border: none !important;
+}
+.ql-editor {
+  border: none !important;
+}
