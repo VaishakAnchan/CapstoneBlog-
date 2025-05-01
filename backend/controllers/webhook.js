@@ -1,4 +1,4 @@
-// // import { Webhook } from "svix";
+// import { Webhook } from "svix";
 // import User from "../models/user.model.js";
 // import dotenv from "dotenv";
 // export const clerkWebHook = async (req, res) => {
@@ -73,8 +73,13 @@ export const clerkWebHook = async (req, res) => {
       img: evt.data.profile_img_url,
     });
 
-    await newUser.save();
-    console.log(`newUSer= ${newUser}`);
+    try {
+      await newUser.save();
+      console.log("User saved:", newUser);
+    } catch (err) {
+      console.error("Error saving user:", err);
+    }
+    
   }
 
   if (evt.type === "user.deleted") {
