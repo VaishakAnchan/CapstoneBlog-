@@ -75,7 +75,7 @@ app.use((error, req, res, next) => {
 
 
 
-app.listen(PORT, () => {
-  connectDB();
+app.listen(PORT, async ()  => {
+  await connectDB();
   console.log(`listing to port ${PORT}`);
 });
