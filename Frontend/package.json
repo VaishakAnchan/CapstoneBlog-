@@ -13,6 +13,7 @@
     "@clerk/clerk-react": "^5.20.2",
     "@tanstack/react-query": "^5.62.11",
     "axios": "^1.7.9",
+    "backend": "file:..",
     "dompurify": "^3.2.3",
     "dotenv": "^16.5.0",
     "framer-motion": "^12.9.2",

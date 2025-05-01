@@ -8,7 +8,7 @@ import mongoose from "mongoose";
 import { connectDB } from "./db/Db.conn.js";
 import { clerkMiddleware } from "@clerk/express";
 import cors from "cors";
-import path from "path";
+
 
 const app = express();
 dotenv.config();
@@ -19,7 +19,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 4001;
 // const URI = process.env.MONGODB;
 
-const __dirname = path.resolve();
+
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -73,13 +73,7 @@ app.use((error, req, res, next) => {
   });
 });
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-  });
-}
 
 app.listen(PORT, () => {
   connectDB();
