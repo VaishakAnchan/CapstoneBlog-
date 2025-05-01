@@ -6,23 +6,27 @@ import commentRouter from "./routes/comment.js";
 import webhookRouter from "./routes/webhook.route.js";
 import mongoose from "mongoose";
 import { connectDB } from "./db/Db.conn.js";
-import { clerkMiddleware } from '@clerk/express';
+import { clerkMiddleware } from "@clerk/express";
 import cors from "cors";
+import path from "path";
 
 const app = express();
 dotenv.config();
-app.use(cors(process.env.CLIENT_URL))
+app.use(cors(process.env.CLIENT_URL));
 app.use(clerkMiddleware());
 app.use("/webhooks", webhookRouter);
 app.use(express.json());
 const PORT = process.env.PORT || 4001;
-const URI = process.env.MONGODB;
+// const URI = process.env.MONGODB;
 
+const __dirname = path.resolve();
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", 
-    "Origin, X-Requested-With, Content-Type, Accept");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   next();
 });
 
@@ -68,6 +72,14 @@ app.use((error, req, res, next) => {
     stack: error.stack,
   });
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  });
+}
 
 app.listen(PORT, () => {
   connectDB();
