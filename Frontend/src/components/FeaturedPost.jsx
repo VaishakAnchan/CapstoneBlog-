@@ -32,7 +32,7 @@ const FeaturedPost = () => {
       <div className="mt-8 flex flex-col lg:flex-row gap-7">
         <div className="w-full lg:w-1/2 flex flex-col gap-3">
           {posts[0].img && (
-            <img src="src\assests\web.png" className="rounded-3xl h-80 w-4/5" />
+            <img src="/assests/web.png" className="rounded-3xl h-80 w-4/5" />
           )}
           <div className="flex items-center gap-3">
             <h1 className="font-semibold  lg:text-lg">01.</h1>
@@ -55,7 +55,7 @@ const FeaturedPost = () => {
               {posts[1].img && (
                 <div className=" w-1/3 aspect-video">
                   <img
-                    src="src\assests\web2.png"
+                    src="/assests/web2.png"
                     alt=""
                     className="rounded-3xl object-cover w-full h-full"
                   />
@@ -85,7 +85,7 @@ const FeaturedPost = () => {
               {posts[2].img && (
                 <div className=" w-1/3 aspect-video">
                   <img
-                    src="src\assests\web2.png"
+                    src="/assests/web2.png"
                     alt=""
                     className="rounded-3xl object-cover w-full h-full"
                   />
@@ -115,7 +115,7 @@ const FeaturedPost = () => {
               {posts[3].img && (
                 <div className=" w-1/3 aspect-video">
                   <img
-                    src="src\assests\web2.png"
+                    src="/assests/web2.png"
                     alt=""
                     className="rounded-3xl object-cover w-full h-full"
                   />

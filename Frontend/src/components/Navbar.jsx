@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className="w-full h-16 md:h-20 flex items-center justify-between bg-slate-900 text-white">
       <Link to="/" className="flex items-center gap-4 text-2xl font-bold">
-        <img className="w-8 h-8" src="src\assests\logo.png" alt="" />
+        <img className="w-8 h-8" src="/assests/logo.png" alt="" />
         <span>Capstone blog</span>
       </Link>
       {/* mobile view */}
